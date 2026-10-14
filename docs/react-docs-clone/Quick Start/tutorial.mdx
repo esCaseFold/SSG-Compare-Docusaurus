@@ -1,18 +1,14 @@
 ---
 title: 'Tutorial: Tic-Tac-Toe'
+sidebar_position: 2
+slug: /tutorial-tic-tac-toe
 ---
-
-<Intro>
 
 You will build a small tic-tac-toe game during this tutorial. This tutorial does not assume any existing React knowledge. The techniques you'll learn in the tutorial are fundamental to building any React app, and fully understanding it will give you a deep understanding of React.
 
-</Intro>
-
-<Note>
-
+:::note
 This tutorial is designed for people who prefer to **learn by doing** and want to quickly try making something tangible. If you prefer learning each concept step by step, start with [Describing the UI.](/learn/describing-the-ui)
-
-</Note>
+:::
 
 The tutorial is divided into several sections:
 
@@ -27,9 +23,8 @@ In this tutorial, you'll build an interactive tic-tac-toe game with React.
 
 You can see what it will look like when you're finished here:
 
-<Sandpack>
-
-```js src/App.js
+//add sandbox with final code
+```js live src/App.js 
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -192,8 +187,6 @@ body {
 }
 ```
 
-</Sandpack>
-
 If the code doesn't make sense to you yet, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
 
 We recommend that you check out the tic-tac-toe game above before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and it is updated as the game progresses.
@@ -204,9 +197,7 @@ Once you've played around with the finished tic-tac-toe game, keep scrolling. Yo
 
 In the live code editor below, click **Fork** in the top-right corner to open the editor in a new tab using the website CodeSandbox. CodeSandbox lets you write code in your browser and preview how your users will see the app you've created. The new tab should display an empty square and the starter code for this tutorial.
 
-<Sandpack>
-
-```js src/App.js
+```js live src/App.js
 export default function Square() {
   return <button className="square">X</button>;
 }
@@ -257,21 +248,17 @@ body {
 }
 ```
 
-</Sandpack>
-
-<Note>
-
+:::note
 You can also follow this tutorial using your local development environment. To do this, you need to:
 
 1. Install [Node.js](https://nodejs.org/en/)
-1. In the CodeSandbox tab you opened earlier, press the top-left corner button to open the menu, and then choose **Download Sandbox** in that menu to download an archive of the files locally
-1. Unzip the archive, then open a terminal and `cd` to the directory you unzipped
-1. Install the dependencies with `npm install`
-1. Run `npm start` to start a local server and follow the prompts to view the code running in a browser
+2. In the CodeSandbox tab you opened earlier, press the top-left corner button to open the menu, and then choose **Download Sandbox** in that menu to download an archive of the files locally
+3. Unzip the archive, then open a terminal and `cd` to the directory you unzipped
+4. Install the dependencies with `npm install`
+5. Run `npm start` to start a local server and follow the prompts to view the code running in a browser
 
 If you get stuck, don't let this stop you! Follow along online instead and try a local setup again later.
-
-</Note>
+:::
 
 ## Overview {/*overview*/}
 
@@ -281,11 +268,11 @@ Now that you're set up, let's get an overview of React!
 
 In CodeSandbox you'll see three main sections:
 
-// ![CodeSandbox with starter code](../images/tutorial/react-starter-code-codesandbox.png)
+![CodeSandbox with starter code](./img/react-starter-code-codesandbox.png)
 
 1. The _Files_ section with a list of files like `App.js`, `index.js`, `styles.css` in `src` folder and a folder called `public`
-1. The _code editor_ where you'll see the source code of your selected file
-1. The _browser_ section where you'll see how the code you've written will be displayed
+2. The _code editor_ where you'll see the source code of your selected file
+3. The _browser_ section where you'll see how the code you've written will be displayed
 
 The `App.js` file should be selected in the _Files_ section. The contents of that file in the _code editor_ should be:
 
@@ -297,7 +284,7 @@ export default function Square() {
 
 The _browser_ section should be displaying a square with an X in it like this:
 
-// ![x-filled square](../images/tutorial/x-filled-square.png)
+// ![x-filled square](./img/x-filled-square.png)
 
 Now let's have a look at the files in the starter code.
 
@@ -360,11 +347,12 @@ export default function Square() {
 
 You'll get this error:
 
-<ConsoleBlock level="error">
+//ConsoleBlock level="error">
 
+```js title="Console"
 /src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX Fragment `<>...</>`?
 
-</ConsoleBlock>
+///ConsoleBlock>
 
 React components need to return a single JSX element and not multiple adjacent JSX elements like two buttons. To fix this you can use *Fragments* (`<>` and `</>`) to wrap multiple adjacent JSX elements like this:
 
@@ -381,11 +369,11 @@ export default function Square() {
 
 Now you should see:
 
-// ![two x-filled squares](../images/tutorial/two-x-filled-squares.png)
+// ![two x-filled squares](./img/two-x-filled-squares.png)
 
 Great! Now you just need to copy-paste a few times to add nine squares and...
 
-/// ![nine x-filled squares in a line](../images/tutorial/nine-x-filled-squares.png)
+/// ![nine x-filled squares in a line](./img/nine-x-filled-squares.png)
 
 Oh no! The squares are all in a single line, not in a grid like you need for our board. To fix this you'll need to group your squares into rows with `div`s and add some CSS classes. While you're at it, you'll give each square a number to make sure you know where each square is displayed.
 
@@ -417,7 +405,7 @@ export default function Square() {
 
 The CSS defined in `styles.css` styles the divs with the `className` of `board-row`. Now that you've grouped your components into rows with the styled `div`s you have your tic-tac-toe board:
 
-/// ![tic-tac-toe board filled with numbers 1 through 9](../images/tutorial/number-filled-board.png)
+/// ![tic-tac-toe board filled with numbers 1 through 9](./img/number-filled-board.png)
 
 But you now have a problem. Your component named `Square`, really isn't a square anymore. Let's fix that by changing the name to `Board`:
 
@@ -429,9 +417,7 @@ export default function Board() {
 
 At this point your code should look something like this:
 
-<Sandpack>
-
-```js
+```js live src/App.js
 export default function Board() {
   return (
     <>
@@ -500,13 +486,11 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
-<Note>
-
+:::note
 Psssst... That's a lot to type! It's okay to copy and paste code from this page. However, if you're up for a little challenge, we recommend only copying code that you've manually typed at least once yourself.
-
-</Note>
+:::
 
 ### Passing data through props {/*passing-data-through-props*/}
 
@@ -555,7 +539,7 @@ Note how unlike the browser `div`s, your own components `Board` and `Square` mus
 
 Let's take a look:
 
-/// ![one-filled board](../images/tutorial/board-filled-with-ones.png)
+/// ![one-filled board](./img/board-filled-with-ones.png)
 
 Oh no! You lost the numbered squares you had before. Now each square says "1". To fix this, you will use *props* to pass the value each square should have from the parent component (`Board`) to its child (`Square`).
 
@@ -579,7 +563,7 @@ function Square({ value }) {
 
 Oops, this is not what you wanted:
 
-/// ![value-filled board](../images/tutorial/board-filled-with-value.png)
+/// ![value-filled board](./img/board-filled-with-value.png)
 
 You wanted to render the JavaScript variable called `value` from your component, not the word "value". To "escape into JavaScript" from JSX, you need curly braces. Add curly braces around `value` in JSX like so:
 
@@ -591,7 +575,7 @@ function Square({ value }) {
 
 For now, you should see an empty board:
 
-/// ![empty board](../images/tutorial/empty-board.png)
+/// ![empty board](./img/empty-board.png)
 
 This is because the `Board` component hasn't passed the `value` prop to each `Square` component it renders yet. To fix it you'll add the `value` prop to each `Square` component rendered by the `Board` component:
 
@@ -621,11 +605,11 @@ export default function Board() {
 
 Now you should see a grid of numbers again:
 
-/// ![tic-tac-toe board filled with numbers 1 through 9](../images/tutorial/number-filled-board.png)
+/// ![tic-tac-toe board filled with numbers 1 through 9](./img/number-filled-board.png)
 
 Your updated code should look like this:
 
-<Sandpack>
+/*Sandpack>*/
 
 ```js src/App.js
 function Square({ value }) {
@@ -700,7 +684,7 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 ### Making an interactive component {/*making-an-interactive-component*/}
 
@@ -725,11 +709,9 @@ function Square({ value }) {
 
 If you click on a square now, you should see a log saying `"clicked!"` in the _Console_ tab at the bottom of the _Browser_ section in CodeSandbox. Clicking the square more than once will log `"clicked!"` again. Repeated console logs with the same message will not create more lines in the console. Instead, you will see an incrementing counter next to your first `"clicked!"` log.
 
-<Note>
-
+:::note
 If you are following this tutorial using your local development environment, you need to open your browser's Console. For example, if you use the Chrome browser, you can view the Console with the keyboard shortcut **Shift + Ctrl + J** (on Windows/Linux) or **Option + ⌘ + J** (on macOS).
-
-</Note>
+:::
 
 As a next step, you want the Square component to "remember" that it got clicked, and fill it with an "X" mark. To "remember" things, components use *state*.
 
@@ -799,13 +781,13 @@ function Square() {
 
 By calling this `set` function from an `onClick` handler, you're telling React to re-render that `Square` whenever its `<button>` is clicked. After the update, the `Square`'s `value` will be `'X'`, so you'll see the "X" on the game board. Click on any Square, and "X" should show up:
 
-/// ![adding xes to board](../images/tutorial/tictac-adding-x-s.gif)
+/// ![adding xes to board](./img/tictac-adding-x-s.gif)
 
 Each Square has its own state: the `value` stored in each Square is completely independent of the others. When you call a `set` function in a component, React automatically updates the child components inside too.
 
 After you've made the above changes, your code will look like this:
 
-<Sandpack>
+//Sandpack>
 
 ```js src/App.js
 import { useState } from 'react';
@@ -895,7 +877,7 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 ### React Developer Tools {/*react-developer-tools*/}
 
@@ -903,15 +885,15 @@ React Developer Tools let you check the props and the state of your React compon
 
 After you install it, a new *Components* tab will appear in your browser Developer Tools for sites using React. If you're following along in CodeSandbox, you'd need to first open your sandbox preview in a new tab:
 
-/// ![opening in new tab](../images/tutorial/sandbox-new-tab.png)
+/// ![opening in new tab](./img/sandbox-new-tab.png)
 
 Then, on the preview page, open your browser's DevTools and find the *Components* tab:
 
-// ![components tab](../images/tutorial/components-tab.png)
+// ![components tab](./img/components-tab.png)
 
 To inspect a particular component on the screen, use the button in the top left corner of the Components tab:
 
-// ![inspecting with devtools](../images/tutorial/devtools-inspect.gif)
+// ![inspecting with devtools](./img/devtools-inspect.gif)
 
 
 ## Completing the game {/*completing-the-game*/}
@@ -983,11 +965,11 @@ function Square({value}) {
 
 At this point you should see an empty tic-tac-toe board:
 
-// ![empty board](../images/tutorial/empty-board.png)
+// ![empty board](./img/empty-board.png)
 
 And your code should look like this:
 
-<Sandpack>
+//Sandpack>
 
 ```js src/App.js
 import { useState } from 'react';
@@ -1065,7 +1047,7 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 Each Square will now receive a `value` prop that will either be `'X'`, `'O'`, or `null` for empty squares.
 
@@ -1132,11 +1114,9 @@ The `handleClick` function creates a copy of the `squares` array (`nextSquares`)
 
 Calling the `setSquares` function lets React know the state of the component has changed. This will trigger a re-render of the components that use the `squares` state (`Board`) as well as its child components (the `Square` components that make up the board).
 
-<Note>
-
+:::note
 JavaScript supports [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) which means an inner function (e.g. `handleClick`) has access to variables and functions defined in an outer function (e.g. `Board`). The `handleClick` function can read the `squares` state and call the `setSquares` method because they are both defined inside of the `Board` function.
-
-</Note>
+:::
 
 Now you can add X's to the board...  but only to the upper left square. Your `handleClick` function is hardcoded to update the index for the upper left square (`0`). Let's update `handleClick` to be able to update any square. Add an argument `i` to the `handleClick` function that takes the index of the square to update:
 
@@ -1164,11 +1144,11 @@ Next, you will need to pass that `i` to `handleClick`. You could try to set the 
 
 Here is why this doesn't work. The `handleClick(0)` call will be a part of rendering the board component. Because `handleClick(0)` alters the state of the board component by calling `setSquares`, your entire board component will be re-rendered again. But this runs `handleClick(0)` again, leading to an infinite loop:
 
-<ConsoleBlock level="error">
-
+//ConsoleBlock level="error">
+:::danger
 Too many re-renders. React limits the number of renders to prevent an infinite loop.
-
-</ConsoleBlock>
+:::
+///ConsoleBlock>
 
 Why didn't this problem happen earlier?
 
@@ -1221,13 +1201,13 @@ export default function Board() {
 
 Now you can again add X's to any square on the board by clicking on them:
 
-// ![filling the board with X](../images/tutorial/tictac-adding-x-s.gif)
+// ![filling the board with X](./img/tictac-adding-x-s.gif)
 
 But this time all the state management is handled by the `Board` component!
 
 This is what your code should look like:
 
-<Sandpack>
+//Sandpack>
 
 ```js src/App.js
 import { useState } from 'react';
@@ -1316,7 +1296,7 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 Now that your state handling is in the `Board` component, the parent `Board` component passes props to the child `Square` components so that they can be displayed correctly. When clicking on a `Square`, the child `Square` component now asks the parent `Board` component to update the state of the board. When the `Board`'s state changes, both the `Board` component and every child `Square` re-renders automatically. Keeping the state of all squares in the `Board` component will allow it to determine the winner in the future.
 
@@ -1328,11 +1308,9 @@ Let's recap what happens when a user clicks the top left square on your board to
 
 In the end the user sees that the upper left square has changed from empty to having an `X` after clicking it.
 
-<Note>
-
+:::note
 The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. You could give any name to the `Square`'s `onSquareClick` prop or `Board`'s `handleClick` function, and the code would work the same. In React, it's conventional to use `onSomething` names for props which represent events and `handleSomething` for the function definitions which handle those events.
-
-</Note>
+:::
 
 ### Why immutability is important {/*why-immutability-is-important*/}
 
@@ -1403,7 +1381,7 @@ Now, as you click on different squares, they will alternate between `X` and `O`,
 
 But wait, there's a problem. Try clicking on the same square multiple times:
 
-// ![O overwriting an X](../images/tutorial/o-replaces-x.gif)
+// ![O overwriting an X](./img/o-replaces-x.gif)
 
 The `X` is overwritten by an `O`! While this would add a very interesting twist to the game, we're going to stick to the original rules for now.
 
@@ -1421,7 +1399,7 @@ function handleClick(i) {
 
 Now you can only add `X`'s or `O`'s to empty squares! Here is what your code should look like at this point:
 
-<Sandpack>
+//Sandpack>
 
 ```js src/App.js
 import { useState } from 'react';
@@ -1519,7 +1497,7 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 ### Declaring a winner {/*declaring-a-winner*/}
 
@@ -1551,11 +1529,9 @@ function calculateWinner(squares) {
 }
 ```
 
-<Note>
-
+:::note
 It does not matter whether you define `calculateWinner` before or after the `Board`. Let's put it at the end so that you don't have to scroll past it every time you edit your components.
-
-</Note>
+:::
 
 You will call `calculateWinner(squares)` in the `Board` component's `handleClick` function to check if a player has won. You can perform this check at the same time you check if a user has clicked a square that already has an `X` or an `O`. We'd like to return early in both cases:
 
@@ -1593,7 +1569,7 @@ export default function Board() {
 
 Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So _you_ are the real winner here. Here is what the code should look like:
 
-<Sandpack>
+//Sandpack>
 
 ```js src/App.js
 import { useState } from 'react';
@@ -1720,7 +1696,7 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 ## Adding time travel {/*adding-time-travel*/}
 
@@ -1871,7 +1847,7 @@ For example, if `history` is `[[null,null,null], ["X",null,null]]` and `nextSqua
 
 At this point, you've moved the state to live in the `Game` component, and the UI should be fully working, just as it was before the refactor. Here is what the code should look like at this point:
 
-<Sandpack>
+//Sandpack>
 
 ```js src/App.js
 import { useState } from 'react';
@@ -2016,7 +1992,7 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 ### Showing the past moves {/*showing-the-past-moves*/}
 
@@ -2076,13 +2052,15 @@ export default function Game() {
 
 You can see what your code should look like below. Note that you should see an error in the developer tools console that says:
 
-<ConsoleBlock level="warning">
+//ConsoleBlock level="warning">
+:::warning
 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
-</ConsoleBlock>
+:::
+///ConsoleBlock>
 
 You'll fix this error in the next section.
 
-<Sandpack>
+//Sandpack>
 
 ```js src/App.js
 import { useState } from 'react';
@@ -2246,7 +2224,7 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 As you iterate through the `history` array inside the function you passed to `map`, the `squares` argument goes through each element of `history`, and the `move` argument goes through each array index: `0`, `1`, `2`, …. (In most cases, you'd need the actual array elements, but to render a list of moves you will only need indexes.)
 
@@ -2310,7 +2288,7 @@ const moves = history.map((squares, move) => {
 });
 ```
 
-<Sandpack>
+//Sandpack>
 
 ```js src/App.js
 import { useState } from 'react';
@@ -2475,7 +2453,7 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 Before you can implement `jumpTo`, you need the `Game` component to keep track of which step the user is currently viewing. To do this, define a new state variable called `currentMove`, defaulting to `0`:
 
@@ -2531,7 +2509,7 @@ export default function Game() {
 
 If you click on any step in the game's history, the tic-tac-toe board should immediately update to show what the board looked like after that step occurred.
 
-<Sandpack>
+//Sandpack>
 
 ```js src/App.js
 import { useState } from 'react';
@@ -2698,7 +2676,7 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 ### Final cleanup {/*final-cleanup*/}
 
@@ -2741,7 +2719,7 @@ Nice work! We hope you now feel like you have a decent grasp of how React works.
 
 Check out the final result here:
 
-<Sandpack>
+//Sandpack>
 
 ```js src/App.js
 import { useState } from 'react';
@@ -2906,15 +2884,15 @@ body {
 }
 ```
 
-</Sandpack>
+/*/Sandpack>*/
 
 If you have extra time or want to practice your new React skills, here are some ideas for improvements that you could make to the tic-tac-toe game, listed in order of increasing difficulty:
 
 1. For the current move only, show "You are at move #..." instead of a button.
-1. Rewrite `Board` to use two loops to make the squares instead of hardcoding them.
-1. Add a toggle button that lets you sort the moves in either ascending or descending order.
-1. When someone wins, highlight the three squares that caused the win (and when no one wins, display a message about the result being a draw).
-1. Display the location for each move in the format (row, col) in the move history list.
+2. Rewrite `Board` to use two loops to make the squares instead of hardcoding them.
+3. Add a toggle button that lets you sort the moves in either ascending or descending order.
+4. When someone wins, highlight the three squares that caused the win (and when no one wins, display a message about the result being a draw).
+5. Display the location for each move in the format (row, col) in the move history list.
 
 Throughout this tutorial, you've touched on React concepts including elements, components, props, and state. Now that you've seen how these concepts work when building a game, check out [Thinking in React](/learn/thinking-in-react) to see how the same React concepts work when building an app's UI.
 

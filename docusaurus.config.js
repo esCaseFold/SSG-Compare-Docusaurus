@@ -23,7 +23,7 @@ const config = {
   url: 'https://your-docusaurus-site.example.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/SSG-Compare-Docusaurus/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -74,11 +74,21 @@ const config = {
     ],
   ],
 
+  themes: [
+    '@docusaurus/theme-live-codeblock'
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      // Component: one Doc accordian is open at a time, and the others are closed.
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true,
+        },
+      },
       colorMode: {
         respectPrefersColorScheme: true,
       },
