@@ -1,4 +1,13 @@
-# Website
+# TWMP Assignment #6: Compare and Contrast SSGs
+
+* You must use GitBook plus two other SSG tools of your choice (e.g., Astro Starlight, Docusaurus, VitePress, MkDocs, etc.).
+* You are not allowed to modify the content of the React documentation.
+* Your focus is strictly on how each SSG presents and structures the same content.
+* The goal is to understand how different documentation tools affect readability, navigation, and developer experience.
+
+
+
+## Website
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
