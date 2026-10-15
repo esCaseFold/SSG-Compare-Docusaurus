@@ -6,7 +6,7 @@ slug: /thinking-in-react
 
 React can change how you think about the designs you look at and the apps you build. When you build a user interface with React, you will first break it apart into pieces called *components*. Then, you will describe the different visual states for each of your components. Finally, you will connect your components together so that the data flows through them. In this tutorial, we’ll guide you through the thought process of building a searchable product data table with React.
 
-## Start with the mockup {/*start-with-the-mockup*/}
+## Start with the mockup
 
 Imagine that you already have a JSON API and a mockup from a designer.
 
@@ -29,7 +29,7 @@ The mockup looks like this:
 
 To implement a UI in React, you will usually follow the same five steps.
 
-## Step 1: Break the UI into a component hierarchy {/*step-1-break-the-ui-into-a-component-hierarchy*/}
+## Step 1: Break the UI into a component hierarchy
 
 Start by drawing boxes around every component and subcomponent in the mockup and naming them. If you work with a designer, they may have already named these components in their design tool. Ask them!
 
@@ -43,9 +43,8 @@ If your JSON is well-structured, you'll often find that it naturally maps to the
 
 There are five components on this screen:
 
-<FullWidth>
-
-<CodeDiagram flip>
+//full width styling
+//CodeDiagram flip>
 
 <img src="/images/docs/s_thinking-in-react_ui_outline.png" width="500" style={{margin: '0 auto'}} />
 
@@ -55,9 +54,7 @@ There are five components on this screen:
 4. `ProductCategoryRow` (green) displays a heading for each category.
 5. `ProductRow`	(yellow) displays a row for each product.
 
-</CodeDiagram>
-
-</FullWidth>
+///CodeDiagram>
 
 If you look at `ProductTable` (lavender), you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and you could go either way. For this example, it is a part of `ProductTable` because it appears inside the `ProductTable`'s list. However, if this header grows to be complex (e.g., if you add sorting), you can move it into its own `ProductTableHeader` component.
 
@@ -69,7 +66,7 @@ Now that you've identified the components in the mockup, arrange them into a hie
         * `ProductCategoryRow`
         * `ProductRow`
 
-## Step 2: Build a static version in React {/*step-2-build-a-static-version-in-react*/}
+## Step 2: Build a static version in React
 
 Now that you have your component hierarchy, it's time to implement your app. The most straightforward approach is to build a version that renders the UI from your data model without adding any interactivity... yet! It's often easier to build the static version first and add interactivity later. Building a static version requires a lot of typing and no thinking, but adding interactivity requires a lot of thinking and not a lot of typing.
 
@@ -77,9 +74,8 @@ To build a static version of your app that renders your data model, you'll want 
 
 You can either build "top down" by starting with building the components higher up in the hierarchy (like `FilterableProductTable`) or "bottom up" by working from components lower down (like `ProductRow`). In simpler examples, it’s usually easier to go top-down, and on larger projects, it’s easier to go bottom-up.
 
-<Sandpack>
-
-```jsx src/App.js
+// add live edit part
+```jsx live title="src/App.js"
 function ProductCategoryRow({ category }) {
   return (
     <tr>
@@ -191,19 +187,17 @@ td {
 }
 ```
 
-</Sandpack>
-
 (If this code looks intimidating, go through the [Quick Start](/learn/) first!)
 
 After building your components, you'll have a library of reusable components that render your data model. Because this is a static app, the components will only return JSX. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. This is called _one-way data flow_ because the data flows down from the top-level component to the ones at the bottom of the tree.
 
-<Pitfall>
+:::caution[Pitfall]
 
 At this point, you should not be using any state values. That’s for the next step!
 
-</Pitfall>
+:::
 
-## Step 3: Find the minimal but complete representation of UI state {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
+## Step 3: Find the minimal but complete representation of UI state
 
 To make the UI interactive, you need to let users change your underlying data model. You will use *state* for this.
 
@@ -233,9 +227,9 @@ Let's go through them one by one again:
 
 This means only the search text and the value of the checkbox are state! Nicely done!
 
-<DeepDive>
+:::note[Deep Dive]
 
-#### Props vs State {/*props-vs-state*/}
+#### Props vs State
 
 There are two types of "model" data in React: props and state. The two are very different:
 
@@ -244,9 +238,9 @@ There are two types of "model" data in React: props and state. The two are very 
 
 Props and state are different, but they work together. A parent component will often keep some information in state (so that it can change it), and *pass it down* to child components as their props. It's okay if the difference still feels fuzzy on the first read. It takes a bit of practice for it to really stick!
 
-</DeepDive>
+:::
 
-## Step 4: Identify where your state should live {/*step-4-identify-where-your-state-should-live*/}
+## Step 4: Identify where your state should live
 
 After identifying your app’s minimal state data, you need to identify which component is responsible for changing this state, or *owns* the state. Remember: React uses one-way data flow, passing data down the component hierarchy from parent to child component. It may not be immediately clear which component should own what state. This can be challenging if you’re new to this concept, but you can figure it out by following these steps!
 
@@ -295,9 +289,8 @@ Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as p
 
 You can start seeing how your application will behave. Edit the `filterText` initial value from `useState('')` to `useState('fruit')` in the sandbox code below. You'll see both the search input text and the table update:
 
-<Sandpack>
-
-```jsx src/App.js
+// add live edit part
+```jsx live title="src/App.js"
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
@@ -433,15 +426,13 @@ td {
 }
 ```
 
-</Sandpack>
-
 Notice that editing the form doesn't work yet. There is a console error in the sandbox above explaining why:
 
-<ConsoleBlock level="error">
+//ConsoleBlock level="error">
 
 You provided a \`value\` prop to a form field without an \`onChange\` handler. This will render a read-only field.
 
-</ConsoleBlock>
+///ConsoleBlock>
 
 In the sandbox above, `ProductTable` and `SearchBar` read the `filterText` and `inStockOnly` props to render the table, the input, and the checkbox. For example, here is how `SearchBar` populates the input value:
 
@@ -458,7 +449,7 @@ function SearchBar({ filterText, inStockOnly }) {
 However, you haven't added any code to respond to the user actions like typing yet. This will be your final step.
 
 
-## Step 5: Add inverse data flow {/*step-5-add-inverse-data-flow*/}
+## Step 5: Add inverse data flow
 
 Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user input, you will need to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
 
