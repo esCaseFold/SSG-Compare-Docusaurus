@@ -12,7 +12,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'React Docs Clone',
   tagline: 'Compare SSGs',
-  favicon: 'react_logo_light.svg',
+  favicon: '/img/favicon_light.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -20,7 +20,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://github.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/SSG-Compare-Docusaurus/',
@@ -85,6 +85,7 @@ const config = {
       docs: {
         sidebar: {
           autoCollapseCategories: true,
+          hideable: true,
         },
       },
       colorMode: {
@@ -94,7 +95,9 @@ const config = {
         title: 'React Docs Clone',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/react_logo_light.svg',
+          // How to change the favicon for light and dark mode.
+          src: 'img/favicon_light.svg',
+          srcDark: 'img/favicon_dark.svg',
         },
         items: [
           {
@@ -130,14 +133,6 @@ const config = {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
             ],
           },
           {
@@ -154,7 +149,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} SSG-Compare-Docusaurus. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

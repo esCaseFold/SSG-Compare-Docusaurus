@@ -69,8 +69,9 @@ There are other up-and-coming frameworks that are working towards our full stack
 - [RedwoodSDK](https://rwsdk.com/): Redwood is a full stack React framework with lots of pre-installed packages and configuration that makes it easy to build full-stack web applications.
 
 //add accordion
-:::note
-#### Which features make up the React team’s full-stack architecture vision? {/*which-features-make-up-the-react-teams-full-stack-architecture-vision*/}
+<details>
+  <summary>Deep Dive</summary>
+#### Which features make up the React team’s full-stack architecture vision?
 
 Next.js's App Router bundler fully implements the official [React Server Components specification](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md). This lets you mix build-time, server-only, and interactive components in a single React tree.
 
@@ -100,7 +101,7 @@ Next.js's App Router also integrates [data fetching with Suspense](/blog/2022/03
 
 Server Components and Suspense are React features rather than Next.js features. However, adopting them at the framework level requires buy-in and non-trivial implementation work. At the moment, the Next.js App Router is the most complete implementation. The React team is working with bundler developers to make these features easier to implement in the next generation of frameworks.
 
-:::
+</details>
 
 ## Start From Scratch
 
