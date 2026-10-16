@@ -6,7 +6,7 @@ slug: /add-react-to-an-existing-project
 
 If you want to add some interactivity to your existing project, you don't have to rewrite it in React. Add React to your existing stack, and render interactive React components anywhere.
 
-:::note
+:::tip[Note]
 
 **You need to install [Node.js](https://nodejs.org/en/) for local development.** Although you can [try React](/learn/installation#try-react) online or with a simple HTML page, realistically most JavaScript tooling you'll want to use for development requires Node.js.
 
@@ -56,7 +56,7 @@ Then add these lines of code at the top of your main JavaScript file (it might b
 
 // add live edit part
 
-```html live title="public/index.html hidden"
+```html title="public/index.html hidden"
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
@@ -67,7 +67,7 @@ Then add these lines of code at the top of your main JavaScript file (it might b
 </html>
 ```
 
-```js src/index.js active
+```js live title="src/index.js" active
 import { createRoot } from 'react-dom/client';
 
 // Clear the existing HTML content
@@ -80,7 +80,7 @@ root.render(<h1>Hello, world</h1>);
 
 If the entire content of your page was replaced by a "Hello, world!", everything worked! Keep reading.
 
-:::note
+:::tip[Note]
 Integrating a modular JavaScript environment into an existing project for the first time can feel intimidating, but it's worth it! If you get stuck, try our [community resources](/community) or the [Vite Chat](https://chat.vite.dev/).
 :::
 
@@ -114,7 +114,7 @@ Instead, you probably want to render your React components in specific places in
 This lets you find that HTML element with [`document.getElementById`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) and pass it to [`createRoot`](/reference/react-dom/client/createRoot) so that you can render your own React component inside:
 
 // add live edit part
-```html live title="public/index.html"
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
@@ -126,7 +126,7 @@ This lets you find that HTML element with [`document.getElementById`](https://de
 </html>
 ```
 
-```js src/index.js active
+```js live title="src/index.js" active
 import { createRoot } from 'react-dom/client';
 
 function NavigationBar() {

@@ -12,7 +12,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'React Docs Clone',
   tagline: 'Compare SSGs',
-  favicon: 'img/favicon.ico',
+  favicon: 'react_logo_light.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -74,9 +74,7 @@ const config = {
     ],
   ],
 
-  themes: [
-    '@docusaurus/theme-live-codeblock'
-  ],
+  plugins: ['@docusaurus/theme-live-codeblock'],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -96,7 +94,7 @@ const config = {
         title: 'React Docs Clone',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/react_logo_light.svg',
         },
         items: [
           {
