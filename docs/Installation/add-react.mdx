@@ -3,6 +3,8 @@ title: Add React to an Existing Project
 sidebar_position: 4
 slug: /add-react-to-an-existing-project
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 If you want to add some interactivity to your existing project, you don't have to rewrite it in React. Add React to your existing stack, and render interactive React components anywhere.
 
@@ -113,19 +115,8 @@ Instead, you probably want to render your React components in specific places in
 
 This lets you find that HTML element with [`document.getElementById`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) and pass it to [`createRoot`](/reference/react-dom/client/createRoot) so that you can render your own React component inside:
 
-// add live edit part
-```html public/index.html
-<!DOCTYPE html>
-<html>
-  <head><title>My app</title></head>
-  <body>
-    <p>This paragraph is a part of HTML.</p>
-    <nav id="navigation"></nav>
-    <p>This paragraph is also a part of HTML.</p>
-  </body>
-</html>
-```
-
+<Tabs>
+<TabItem value="src/index.js" label="index.js" default>
 ```js live title="src/index.js" active
 import { createRoot } from 'react-dom/client';
 
@@ -138,6 +129,21 @@ const domNode = document.getElementById('navigation');
 const root = createRoot(domNode);
 root.render(<NavigationBar />);
 ```
+</TabItem>
+<TabItem value="public/index.html" label="index.html" default>
+```html live title="public/index.html"
+<!DOCTYPE html>
+<html>
+  <head><title>My app</title></head>
+  <body>
+    <p>This paragraph is a part of HTML.</p>
+    <nav id="navigation"></nav>
+    <p>This paragraph is also a part of HTML.</p>
+  </body>
+</html>
+```
+</TabItem>
+</Tabs>
 
 Notice how the original HTML content from `index.html` is preserved, but your own `NavigationBar` React component now appears inside the `<nav id="navigation">` from your HTML. Read the [`createRoot` usage documentation](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react) to learn more about rendering React components inside an existing HTML page.
 
@@ -146,9 +152,3 @@ When you adopt React in an existing project, it's common to start with small int
 ## Using React Native in an existing native mobile app
 
 [React Native](https://reactnative.dev/) can also be integrated into existing native apps incrementally. If you have an existing native app for Android (Java or Kotlin) or iOS (Objective-C or Swift), [follow this guide](https://reactnative.dev/docs/integration-with-existing-apps) to add a React Native screen to it.
-
----
-
-## Sitemap
-
-[Overview of all docs pages](/llms.txt)
