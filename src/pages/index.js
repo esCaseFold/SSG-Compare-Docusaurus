@@ -17,10 +17,11 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link
+          <Link 
+          /*Homepage Button link and name*/
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            to="/docs/quick-start">
+            Quick Start
           </Link>
         </div>
       </div>

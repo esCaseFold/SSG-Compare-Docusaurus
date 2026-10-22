@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'React Docs Clone',
-  tagline: 'Compare SSGs',
+  tagline: 'Compare SSGs - Docusaurus',
   favicon: '/img/favicon_light.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -121,8 +121,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Quick Start',
+                to: '/docs/quick-start',
+              },
+              {
+                label: 'Installation',
+                to: '/docs/installation',
               },
             ],
           },
