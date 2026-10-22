@@ -23,7 +23,7 @@ React apps are made out of *components*. A component is a piece of the UI (user 
 
 React components are JavaScript functions that return markup:
 
-```js
+```jsx
 function MyButton() {
   return (
     <button>I'm a button</button>
@@ -33,7 +33,7 @@ function MyButton() {
 
 Now that you've declared `MyButton`, you can nest it into another component:
 
-```js {5}
+```jsx {5}
 export default function MyApp() {
   return (
     <div>
@@ -47,7 +47,8 @@ export default function MyApp() {
 Notice that `<MyButton />` starts with a capital letter. That's how you know it's a React component. React component names must always start with a capital letter, while HTML tags must be lowercase.
 
 Have a look at the result:
-```js live
+
+```jsx live
 function MyButton() {
   return (
     <button> 
