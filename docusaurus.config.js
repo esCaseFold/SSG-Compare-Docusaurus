@@ -27,8 +27,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'esCaseFold', // Usually your GitHub org/user name.
+  projectName: 'SSG-Compare-Docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -74,13 +74,21 @@ const config = {
     ],
   ],
 
-  plugins: ['@docusaurus/theme-live-codeblock'],
+  themes: ['@docusaurus/theme-live-codeblock'],
+
+  plugins: [
+    ['@docusaurus/plugin-ideal-image', { quality: 70, maxDimension: 1024, minDimension: 1, disableInDev: false, }],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      liveCodeBlock: {
+        // The position of the live playground, above or under the editor
+        playgroundPosition: 'bottom',
+      },
       // Component: one Doc accordian is open at a time, and the others are closed.
       docs: {
         sidebar: {

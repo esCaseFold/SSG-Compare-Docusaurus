@@ -38,3 +38,23 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Line numbers for live code editor */
+[class*='playgroundEditor'] pre {
+  counter-reset: line;
+}
+
+[class*='playgroundEditor'] .token-line {
+  counter-increment: line;
+}
+
+[class*='playgroundEditor'] .token-line::before {
+  content: counter(line);
+  display: inline-block;
+  width: 2em;
+  margin-right: 1em;
+  text-align: right;
+  opacity: 0.4;
+  user-select: none;
+  pointer-events: none;
+}
