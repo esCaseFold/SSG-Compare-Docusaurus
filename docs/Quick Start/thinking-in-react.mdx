@@ -26,7 +26,9 @@ The JSON API returns some data that looks like this:
 
 The mockup looks like this:
 
-<Image img={require('./img/s_thinking-in-react_ui.png')} size={{width: 10, height: 15}} />
+<div style={{maxWidth: 300, margin: '0 auto'}}>
+<Image img={require('./img/s_thinking-in-react_ui.png')} alt="A list divided into fruits and vegetables with prices. Passionfruit and Pumpkin are marked in red, they are out of stock." />
+</div>
 
 To implement a UI in React, you will usually follow the same five steps.
 
@@ -44,7 +46,9 @@ If your JSON is well-structured, you'll often find that it naturally maps to the
 
 There are five components on this screen:
 
-![A list divided into fruits and vegetables with prices. Passionfruit and Pumpkin are marked in red, they are out of stock.](./img/s_thinking-in-react_ui_outline.png)
+<div style={{maxWidth: 400}}>
+<Image img={require('./img/s_thinking-in-react_ui_outline.png')} />
+</div>
 
 1. `FilterableProductTable` (grey) contains the entire app.
 2. `SearchBar` (blue) receives the user input.
@@ -70,12 +74,7 @@ To build a static version of your app that renders your data model, you'll want 
 
 You can either build "top down" by starting with building the components higher up in the hierarchy (like `FilterableProductTable`) or "bottom up" by working from components lower down (like `ProductRow`). In simpler examples, it's usually easier to go top-down, and on larger projects, it's easier to go bottom-up.
 
-<Sandpack
-  options={{
-    showLineNumbers: true,
-  }}>
-
-```jsx
+```jsx live
 function ProductCategoryRow({ category }) {
   return (
     <tr>
@@ -168,7 +167,6 @@ export default function App() {
   return <FilterableProductTable products={PRODUCTS} />;
 }
 ```
-</Sandpack>
 
 (If this code looks intimidating, go through the [Quick Start](quick-start.mdx) first!)
 
