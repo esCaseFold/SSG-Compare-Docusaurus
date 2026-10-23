@@ -77,7 +77,8 @@ const config = {
   themes: ['@docusaurus/theme-live-codeblock'],
 
   plugins: [
-    ['@docusaurus/plugin-ideal-image', { quality: 70, maxDimension: 1024, minDimension: 1, disableInDev: false, }],
+    ['@docusaurus/plugin-ideal-image', { quality: 70, maxDimension: 700, minDimension: 1, disableInDev: false, }],
+    //['@codesandbox/sandpack-react', {}]
   ],
 
   themeConfig:

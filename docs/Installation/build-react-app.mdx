@@ -20,7 +20,7 @@ Our recommended frameworks also help you build better performing apps. For examp
 
 Going this route also makes it more difficult to get support, since the way you develop routing, data-fetching, and other features will be unique to your situation. You should only choose this option if you are comfortable tackling these problems on your own, or if you're confident that you will never need these features.
 
-For a list of recommended frameworks, check out [Creating a React App](/learn/creating-a-react-app).
+For a list of recommended frameworks, check out [Creating a React App](creating-a-react-app.mdx).
 
 </details>
 
@@ -32,21 +32,20 @@ The first step is to install a build tool like `vite`, `parcel`, or `rsbuild`. T
 ### Vite
 
 [Vite](https://vite.dev/) is a build tool that aims to provide a faster and leaner development experience for modern web projects.
-//terminal styling
-```bash
+
+```bash title="Terminal"
 npm create vite@latest my-app -- --template react-ts
 ```
 
 Vite is opinionated and comes with sensible defaults out of the box. Vite has a rich ecosystem of plugins to support fast refresh, JSX,  Babel/SWC, and other common features. See Vite's [React plugin](https://vite.dev/plugins/#vitejs-plugin-react) or [React SWC plugin](https://vite.dev/plugins/#vitejs-plugin-react-swc) and [React SSR example project](https://vite.dev/guide/ssr.html#example-projects) to get started.
 
-Vite is already being used as a build tool in one of our [recommended frameworks](/learn/creating-a-react-app): [React Router](https://reactrouter.com/start/framework/installation).
+Vite is already being used as a build tool in one of our [recommended frameworks](creating-a-react-app.mdx#full-stack-frameworks): [React Router](https://reactrouter.com/start/framework/installation).
 
 ### Parcel
 
 [Parcel](https://parceljs.org/) combines a great out-of-the-box development experience with a scalable architecture that can take your project from just getting started to massive production applications.
 
-//terminal styling
-```bash
+```bash title="Terminal"
 npm install --save-dev parcel
 ```
 
@@ -56,8 +55,7 @@ Parcel supports fast refresh, JSX, TypeScript, Flow, and styling out of the box.
 
 [Rsbuild](https://rsbuild.dev/) is an Rspack-powered build tool that provides a seamless development experience for React applications. It comes with carefully tuned defaults and performance optimizations ready to use.
 
-//terminal styling
-```bash
+```bash title="Terminal"
 npx create-rsbuild --template react
 ```
 
@@ -112,7 +110,7 @@ If you're fetching data from a GraphQL API, we suggest using:
 
 Code-splitting is the process of breaking your app into smaller bundles that can be loaded on demand. An app's code size increases with every new feature and additional dependency. Apps can become slow to load because all of the code for the entire app needs to be sent before it can be used. Caching, reducing features/dependencies, and moving some code to run on the server can help mitigate slow loading but are incomplete solutions that can sacrifice functionality if overused.
 
-Similarly, if you rely on the apps using your framework to split the code, you might encounter situations where loading becomes slower than if no code splitting were happening at all. For example, [lazily loading](/reference/react/lazy) a chart delays sending the code needed to render the chart, splitting the chart code from the rest of the app. [Parcel supports code splitting with React.lazy](https://parceljs.org/recipes/react/#code-splitting). However, if the chart loads its data *after* it has been initially rendered you are now waiting twice. This is a waterfall: rather than fetching the data for the chart and sending the code to render it simultaneously, you must wait for each step to complete one after the other.
+Similarly, if you rely on the apps using your framework to split the code, you might encounter situations where loading becomes slower than if no code splitting were happening at all. For example, [lazily loading](https://react.dev/reference/react/lazy) a chart delays sending the code needed to render the chart, splitting the chart code from the rest of the app. [Parcel supports code splitting with React.lazy](https://parceljs.org/recipes/react/#code-splitting). However, if the chart loads its data *after* it has been initially rendered you are now waiting twice. This is a waterfall: rather than fetching the data for the chart and sending the code to render it simultaneously, you must wait for each step to complete one after the other.
 
 Splitting code by route, when integrated with bundling and data fetching, can reduce the initial load time of your app and the time it takes for the largest visible content of the app to render ([Largest Contentful Paint](https://web.dev/articles/lcp)).
 
@@ -141,4 +139,4 @@ Using the right rendering strategy for the right routes can decrease the time it
 
 These are just a few examples of the features a new app will need to consider when building from scratch. Many limitations you'll hit can be difficult to solve as each problem is interconnected with the others and can require deep expertise in problem areas you may not be familiar with.
 
-If you don't want to solve these problems on your own, you can [get started with a framework](/learn/creating-a-react-app) that provides these features out of the box.
+If you don't want to solve these problems on your own, you can [get started with a framework](creating-a-react-app.mdx) that provides these features out of the box.

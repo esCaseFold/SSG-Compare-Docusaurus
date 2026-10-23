@@ -3,6 +3,7 @@ title: Quick Start
 sidebar_position: 1
 slug: /quick-start
 ---
+import Image from '@theme/IdealImage'
 
 Welcome to the React documentation! This page will give you an introduction to 80% of the React concepts that you will use on a daily basis.
 
@@ -48,6 +49,32 @@ Notice that `<MyButton />` starts with a capital letter. That's how you know it'
 
 Have a look at the result:
 
+<Sandpack
+  files={{ 
+    "/index.js": {
+      code: `function MyButton() {
+  return (
+    <button> 
+    I'm a button
+    </button>
+  );
+}
+
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Welcome to my app</h1>
+      <MyButton />
+    </div>
+  );
+}`,
+    },
+  }}
+  options={{
+    showLineNumbers: true,
+  }}
+/>
+
 ```jsx live
 function MyButton() {
   return (
@@ -71,7 +98,7 @@ The `export default` keywords specify the main component in the file. If you're 
 
 ## Writing markup with JSX
 
-The markup syntax you've seen above is called *JSX*. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/installation) support JSX out of the box.
+The markup syntax you've seen above is called *JSX*. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/Installation/installation.mdx) support JSX out of the box.
 
 JSX is stricter than HTML. You have to close tags like `<br />`. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper:
 
@@ -316,6 +343,42 @@ React will call your component function again. This time, `count` will be `1`. T
 
 If you render the same component multiple times, each will get its own state. Click each button separately:
 
+<Sandpack
+  files={{ 
+    "/index.js": {
+      code: `import { useState } from 'react';
+
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton />
+      <MyButton />
+    </div>
+  );
+}
+
+function MyButton() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Clicked {count} times
+    </button>
+  );
+}`,
+    },
+  }}
+  options={{
+    showLineNumbers: true,
+  }}
+/>
+
+
 ```js live
 import { useState } from 'react';
 
@@ -356,13 +419,17 @@ Hooks are more restrictive than other functions. You can only call Hooks *at the
 
 In the previous example, each `MyButton` had its own independent `count`, and when each button was clicked, only the `count` for the button clicked changed:
 
-![Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. Both MyButton components contain a count with value zero.](./img/sharing_data_child.webp)
+<div style={{maxWidth: 400, margin: '0 auto'}}>
+<Image img={require('./img/sharing_data_child.png')} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. Both MyButton components contain a count with value zero." />
+</div>
 
 <div style={{ textAlign: 'center' }}>
 Initially, each `MyButton`'s `count` state is `0`
 </div>
 
-![The same diagram as the previous, with the count of the first child MyButton component highlighted indicating a click with the count value incremented to one. The second MyButton component still contains value zero.](./img/sharing_data_child_clicked.webp)
+<div style={{maxWidth: 400, margin: '0 auto'}}>
+<Image img={require('./img/sharing_data_child_clicked.png')} size={[100, 50]} alt="The same diagram as the previous, with the count of the first child MyButton component highlighted indicating a click with the count value incremented to one. The second MyButton component still contains value zero." />
+</div>
 
 <div style={{ textAlign: 'center' }}>
 The first `MyButton` updates its `count` to `1`
@@ -374,13 +441,17 @@ To make both `MyButton` components display the same `count` and update together,
 
 In this example, it is `MyApp`:
 
-![Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. MyApp contains a count value of zero which is passed down to both of the MyButton components, which also show value zero.](./img/sharing_data_parent.webp)
+<div style={{maxWidth: 400, margin: '0 auto'}}>
+<Image img={require('./img/sharing_data_parent.png')} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. MyApp contains a count value of zero which is passed down to both of the MyButton components, which also show value zero." />
+</div>
 
 <div style={{ textAlign: 'center' }}>
 Initially, `MyApp`'s `count` state is `0` and is passed down to both children
 </div>
 
-![The same diagram as the previous, with the count of the parent MyApp component highlighted indicating a click with the value incremented to one. The flow to both of the children MyButton components is also highlighted, and the count value in each child is set to one indicating the value was passed down.](./img/sharing_data_parent_clicked.webp)
+<div style={{maxWidth: 400, margin: '0 auto'}}>
+<Image img={require('./img/sharing_data_parent_clicked.png')} alt="The same diagram as the previous, with the count of the parent MyApp component highlighted indicating a click with the value incremented to one. The flow to both of the children MyButton components is also highlighted, and the count value in each child is set to one indicating the value was passed down." />
+</div>
 
 <div style={{ textAlign: 'center' }}>
 On click, `MyApp` updates its `count` state to `1` and passes it down to both children
@@ -481,4 +552,4 @@ function MyButton({ count, onClick }) {
 
 By now, you know the basics of how to write React code!
 
-Check out the [Tutorial](/learn/tutorial-tic-tac-toe) to put them into practice and build your first mini-app with React.
+Check out the [Tutorial](tutorial.mdx) to put them into practice and build your first mini-app with React.

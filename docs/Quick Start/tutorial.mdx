@@ -8,7 +8,7 @@ You will build a small tic-tac-toe game during this tutorial. This tutorial does
 
 // look at Admonitions in Docusauraus again
 :::tip[Note]
-This tutorial is designed for people who prefer to **learn by doing** and want to quickly try making something tangible. If you prefer learning each concept step by step, start with [Describing the UI.](/learn/describing-the-ui)
+This tutorial is designed for people who prefer to **learn by doing** and want to quickly try making something tangible. If you prefer learning each concept step by step, start with [Describing the UI.](https://react.dev/learn/describing-the-ui)
 :::
 
 The tutorial is divided into several sections:
@@ -1002,7 +1002,7 @@ The result is the same but by not mutating (changing the underlying data) direct
 
 Immutability makes complex features much easier to implement. Later in this tutorial, you will implement a "time travel" feature that lets you review the game's history and "jump back" to past moves. This functionality isn't specific to games--an ability to undo and redo certain actions is a common requirement for apps. Avoiding direct data mutation lets you keep previous versions of the data intact, and reuse them later.
 
-There is also another benefit of immutability. By default, all child components re-render automatically when the state of a parent component changes. This includes even the child components that weren't affected by the change. Although re-rendering is not by itself noticeable to the user (you shouldn't actively try to avoid it!), you might want to skip re-rendering a part of the tree that clearly wasn't affected by it for performance reasons. Immutability makes it very cheap for components to compare whether their data has changed or not. You can learn more about how React chooses when to re-render a component in [the `memo` API reference](/reference/react/memo).
+There is also another benefit of immutability. By default, all child components re-render automatically when the state of a parent component changes. This includes even the child components that weren't affected by the change. Although re-rendering is not by itself noticeable to the user (you shouldn't actively try to avoid it!), you might want to skip re-rendering a part of the tree that clearly wasn't affected by it for performance reasons. Immutability makes it very cheap for components to compare whether their data has changed or not. You can learn more about how React chooses when to re-render a component in [the `memo` API reference](https://react.dev/reference/react/memo).
 
 ### Taking turns
 
@@ -2215,4 +2215,4 @@ If you have extra time or want to practice your new React skills, here are some 
 4. When someone wins, highlight the three squares that caused the win (and when no one wins, display a message about the result being a draw).
 5. Display the location for each move in the format (row, col) in the move history list.
 
-Throughout this tutorial, you've touched on React concepts including elements, components, props, and state. Now that you've seen how these concepts work when building a game, check out [Thinking in React](/learn/thinking-in-react) to see how the same React concepts work when building an app's UI.
+Throughout this tutorial, you've touched on React concepts including elements, components, props, and state. Now that you've seen how these concepts work when building a game, check out [Thinking in React](thinking-in-react.mdx) to see how the same React concepts work when building an app's UI.
